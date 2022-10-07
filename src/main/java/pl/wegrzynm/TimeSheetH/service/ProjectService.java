@@ -8,6 +8,7 @@ import pl.wegrzynm.TimeSheetH.repository.ProjectRepository;
 import pl.wegrzynm.TimeSheetH.repository.entity.Project;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -17,9 +18,6 @@ public class ProjectService {
     private final ProjectRepository projectRepository;
     private final EmployeeRepository employeeRepository;
 
-//    public ProjectService(ProjectRepository projectRepository) {
-//        this.projectRepository = projectRepository;
-//    }
     public void save(Project project){
         projectRepository.save(project);
     }
@@ -27,5 +25,6 @@ public class ProjectService {
     public List<Project> findAll(){
         return projectRepository.findAll();
     }
+
 
 }
