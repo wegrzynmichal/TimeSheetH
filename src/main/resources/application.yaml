@@ -2,7 +2,10 @@ spring:
   datasource:
     username: "postgres"
     password: "74dakota74"
-    url: "jdbc:postgresql://127.0.0.1:5432/timesheet"
+    url: "jdbc:postgresql://127.0.0.1:5432/timesheet1"
     driver-class: "org.postgresql.Driver"
   jpa:
-    show-sql: false
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQL95Dialect
+      ddl-auto: validate
