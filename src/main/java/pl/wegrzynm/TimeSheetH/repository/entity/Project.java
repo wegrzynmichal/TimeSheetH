@@ -39,7 +39,7 @@ public class Project {
 
 //    @JsonManagedReference(value = "projects")
     @ManyToMany(mappedBy = "projects")
-    @JsonIgnoreProperties("projects")
+//    @JsonIgnoreProperties("projects")
     private List<Employee> employees = new ArrayList<>();
 
 }

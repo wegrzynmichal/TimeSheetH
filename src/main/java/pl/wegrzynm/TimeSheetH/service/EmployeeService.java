@@ -20,6 +20,10 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
+    public Employee findById(Integer id){
+        return employeeRepository.findById(id).orElseThrow();
+    }
+
     public void save(Employee employee){
         employeeRepository.save(employee);
     }

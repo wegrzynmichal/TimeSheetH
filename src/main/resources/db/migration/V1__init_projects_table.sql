@@ -8,8 +8,8 @@ create table project(
 
 CREATE TABLE employee(
   id serial primary key,
-  first_name varchar(50) DEFAULT NULL,
-  last_name varchar(50) DEFAULT NULL
+  first_name varchar(50) NOT NULL,
+  last_name varchar(50) NOT NULL
 );
 
 CREATE TABLE employee_project(

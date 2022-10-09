@@ -32,15 +32,15 @@ public class Employee {
 
 //    @JsonBackReference(value = "project_id")
     @ManyToMany(cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE })
+                    CascadeType.ALL})
 
     @JoinTable(
             name = "Employee_Project",
             joinColumns = @JoinColumn(name = "employee_id") ,
             inverseJoinColumns =  @JoinColumn(name = "project_id")
     )
-    @JsonIgnoreProperties("employees")
+//    @JsonIgnoreProperties("employees")
+    @JsonIgnore
     List<Project> projects = new ArrayList<>();
 
 }

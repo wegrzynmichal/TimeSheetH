@@ -4,12 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.wegrzynm.TimeSheetH.repository.entity.Employee;
-import pl.wegrzynm.TimeSheetH.repository.entity.Project;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.OffsetDateTime;
 
 @Data
@@ -18,10 +15,15 @@ import java.time.OffsetDateTime;
 @Builder
 public class TaskRequest {
 
+    @NotBlank
     private String taskName;
+    @NotBlank
     private String description;
     private OffsetDateTime startDate;
+    @NotNull
     private int duration;
+    @NotNull
     private Integer projectId;
+    @NotNull
     private Integer employeeId;
 }

@@ -6,6 +6,7 @@ import pl.wegrzynm.TimeSheetH.controller.dto.TaskRequest;
 import pl.wegrzynm.TimeSheetH.controller.dto.TaskResponse;
 import pl.wegrzynm.TimeSheetH.repository.EmployeeRepository;
 import pl.wegrzynm.TimeSheetH.repository.ProjectRepository;
+import pl.wegrzynm.TimeSheetH.repository.TaskRepository;
 import pl.wegrzynm.TimeSheetH.repository.entity.Task;
 
 import java.time.OffsetDateTime;
@@ -16,6 +17,8 @@ public class TaskMapper {
 
     private final ProjectRepository projectRepository;
     private final EmployeeRepository employeeRepository;
+
+    private final TaskRepository taskRepository;
 
 
     public Task map(TaskRequest taskRequest){
