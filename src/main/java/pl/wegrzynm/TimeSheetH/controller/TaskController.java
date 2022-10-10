@@ -45,12 +45,26 @@ public class TaskController {
         return ResponseEntity.ok(taskService.findByProjectId(id));
     }
 
+    @GetMapping(path = "/task/employee/{id}")
+    public ResponseEntity<List<TaskResponse>> findByEmployeeId(@PathVariable Integer id) {
+        return ResponseEntity.ok(taskService.findByEmployeeId(id));
+    }
+
     @PutMapping(path = "/task/{id}")
     public ResponseEntity<?> update(@RequestBody @Valid TaskRequest taskRequest, @PathVariable Integer id){
         if(!taskService.existById(id)){
             return ResponseEntity.notFound().build();
         }
         taskService.update(taskRequest,id);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping(path = "/task/{id}")
+    public ResponseEntity<?> delete(@PathVariable Integer id){
+        if(!taskService.existById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        taskService.delete(id);
         return ResponseEntity.ok().build();
     }
 

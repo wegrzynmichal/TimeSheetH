@@ -24,6 +24,10 @@ public class EmployeeService {
         return employeeRepository.findById(id).orElseThrow();
     }
 
+    public boolean existById(Integer id){
+        return employeeRepository.existsById(id);
+    }
+
     public void save(Employee employee){
         employeeRepository.save(employee);
     }

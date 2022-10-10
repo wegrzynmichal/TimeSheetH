@@ -35,6 +35,8 @@ public class ProjectService {
                         .getEmployees()
                         .stream()
                         .map(e -> {
+                            if(!employeeService.existById(e.getId()))
+                                throw new IllegalArgumentException("Employee with id: " + e.getId() + " not exist.");
                             Employee ee = employeeService.findById(e.getId());
                             ee.getProjects().add(newProject);
                             return ee;

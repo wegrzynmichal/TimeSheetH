@@ -32,6 +32,13 @@ public class TaskService {
         taskRepository.save(task);
     }
 
+    public void delete(Integer id){
+        var task = taskRepository.findById(id).orElseThrow(
+                ()-> new IllegalArgumentException("Task with id: " + id + " not found.")
+        );
+        taskRepository.delete(task);
+    }
+
     public void update(TaskRequest toUpdate, Integer id){
 //        var task = taskRepository.findById(id)
 //                .orElseThrow(
@@ -70,11 +77,17 @@ public class TaskService {
     }
 
     public List<TaskResponse> findByProjectId(Integer id){
-        if(!projectRepository.existsById(id))
-            throw new IllegalArgumentException("Project with id: " + id + " not found.");
         return taskRepository.findAll()
                 .stream()
                 .filter(t->t.getProject().getId().equals(id))
+                .map(mapper::map)
+                .toList();
+    }
+
+    public List<TaskResponse> findByEmployeeId(Integer id){
+        return taskRepository.findAll()
+                .stream()
+                .filter(t->t.getEmployee().getId().equals(id))
                 .map(mapper::map)
                 .toList();
     }
